@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using dataobjectexception.dynamics365.plugin.Contract;
 using dataobjectexception.dynamics365.plugin.Infrastructure.ContextObject;
@@ -49,6 +50,9 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
         {
             var process = (IManagerProcessAccount)serviceContainer.GetService(typeof(IManagerProcessAccount));
             var processExecuted = process.Execute(contexteGlobal);
+
+
+            LinkedList<int> sentence = new LinkedList<int>();
         }
 
         #endregion
