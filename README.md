@@ -1,4 +1,4 @@
-# objectexception.dynamics365.plugin
+# dataobjectexception.dynamics365.plugin
 
 Design pattern regarding the pipelines of dynamics 365 Plugins
 - Using Dependency Injection with IServiceContainer
