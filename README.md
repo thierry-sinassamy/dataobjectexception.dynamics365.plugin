@@ -7,4 +7,4 @@ Design pattern regarding the pipelines of dynamics 365 Plugins
 - Using Repository Pattern to inject the Dynamics 365 context (CRM services, CRM plugin execution context...)
 - Using Singleton Pattern to handle one instance of the container
 
-![Dynamics365CodeArchitectureAndConcept](https://github.com/thierry-sinassamy/dataobjectexception.dynamics365.plugin/Dynamics365CodeArchitectureAndConcept.png)
+![Dynamics365CodeArchitectureAndConcept](https://github.com/thierry-sinassamy/dataobjectexception.dynamics365.plugin/blob/master/Dynamics365CodeArchitectureAndConcept.png)
