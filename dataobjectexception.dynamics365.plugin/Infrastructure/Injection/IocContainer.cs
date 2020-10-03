@@ -33,7 +33,6 @@ namespace dataobjectexception.dynamics365.plugin.Infrastructure.Injection
             }
         }
 
-
         /// <summary>
         /// Initialize and set the configuration of the container for the injection.
         /// </summary>
