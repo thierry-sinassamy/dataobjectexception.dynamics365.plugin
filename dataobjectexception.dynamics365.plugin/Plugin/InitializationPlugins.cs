@@ -51,8 +51,6 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
             var process = (IManagerProcessAccount)serviceContainer.GetService(typeof(IManagerProcessAccount));
             var processExecuted = process.Execute(contexteGlobal);
 
-
-            LinkedList<int> sentence = new LinkedList<int>();
         }
 
         #endregion

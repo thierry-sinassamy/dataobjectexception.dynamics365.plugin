@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Net.Http;
-using System.Text;
 using dataobjectexception.dynamics365.plugin.Infrastructure.Inversion;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
@@ -12,14 +11,16 @@ namespace dataobjectexception.dynamics365.plugin.Contract
 {
     public abstract class Dynamics365Repository<T> : IDynamics365Repository<T> where T : Entity
     {
+        public IContext365<T> Context365 { get; private set; }
         public IOrganizationService ServicesOrganization { get; }
         public IServiceProvider ServiceProvider { get; }
         public HttpClient OrganizationHttpClient { get; set; }
 
-        protected Dynamics365Repository(IContextDynamics365Service contextDynamics365Service)
+        protected Dynamics365Repository(IContext365<T> contextDynamics365)
         {
-            ServicesOrganization = contextDynamics365Service.OrganizationServiceUser;
-            ServiceProvider = contextDynamics365Service.ServiceProvider;
+            Context365 = contextDynamics365;
+            ServicesOrganization = contextDynamics365.ContextPluginService.OrganizationServiceUser;
+            ServiceProvider = contextDynamics365.ContextPluginService.ServiceProvider;
         }
 
         public virtual T Find(Guid id)
