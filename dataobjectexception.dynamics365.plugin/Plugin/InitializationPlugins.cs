@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.Design;
 using dataobjectexception.dynamics365.plugin.Contract;
 using dataobjectexception.dynamics365.plugin.Infrastructure.ContextObject;
