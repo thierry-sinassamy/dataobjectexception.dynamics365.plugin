@@ -4,11 +4,11 @@ using dataobjectexception.dynamics365.plugin.Infrastructure.TriggerObject;
 
 namespace dataobjectexception.dynamics365.plugin.Rule.Account
 {
-    public class ManagerProcessAccountAggregator : IPluginRuleTriggerAggregator<Dataobjectexception.Plugins.Models.Account>
+    public class ManagerProcessAccountAggregator : IPluginRuleTriggerAggregator<dataobjectexception.dynamics365.Entities.Account>
     {
-        public List<IPluginRuleTrigger<Dataobjectexception.Plugins.Models.Account>> CombineEntityRules(IContextPluginExecution<Dataobjectexception.Plugins.Models.Account> contextPluginExecution)
+        public List<IPluginRuleTrigger<dataobjectexception.dynamics365.Entities.Account>> CombineEntityRules(IContextPluginExecution<dataobjectexception.dynamics365.Entities.Account> contextPluginExecution)
         {
-            return new List<IPluginRuleTrigger<Dataobjectexception.Plugins.Models.Account>>()
+            return new List<IPluginRuleTrigger<dataobjectexception.dynamics365.Entities.Account>>()
             {
                 (new RuleDisplayAccountBusinessRulePreCreate())
             };

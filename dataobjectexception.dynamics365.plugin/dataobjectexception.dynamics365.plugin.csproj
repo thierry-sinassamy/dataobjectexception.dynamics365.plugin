@@ -13,6 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Model\Entities.cs~RF163b41bb.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Documentation\" />
     <Folder Include="DataAccess\" />
@@ -21,10 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.4" />
     <PackageReference Include="Microsoft.CrmSdk.CoreTools" Version="9.1.0.49" />
     <PackageReference Include="Microsoft.CrmSdk.Data" Version="9.0.2.9" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.2.4" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PluginRegistrationTool" Version="9.1.0.20" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
@@ -45,7 +52,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y /E /R &quot;$(TargetDir)*.dll&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.registration\bin&quot;&#xD;&#xA;xcopy /Y /E /R &quot;$(TargetDir)*.pdb&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.registration\bin&quot;" />
+    <Exec Command="xcopy /Y /E /R &quot;$(TargetDir)*.dll&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.cqrs.registration\bin&quot;&#xD;&#xA;xcopy /Y /E /R &quot;$(TargetDir)*.pdb&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.cqrs.registration\bin&quot;&#xD;&#xA;xcopy /Y /E /R &quot;$(TargetDir)*.dll&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.crud.registration\bin&quot;&#xD;&#xA;xcopy /Y /E /R &quot;$(TargetDir)*.pdb&quot; &quot;C:\Users\ThierrySinassamy\source\repos\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.crud.registration\bin&quot;" />
   </Target>
 
 </Project>

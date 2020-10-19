@@ -12,7 +12,7 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
     {
         #region Account
 
-        public static IContextPluginExecution<Dataobjectexception.Plugins.Models.Account> InitializeContextPluginExecutionAccountPreCreate(IServiceProvider serviceProvider)
+        public static IContextPluginExecution<dataobjectexception.dynamics365.Entities.Account> InitializeContextPluginExecutionAccountPreCreate(IServiceProvider serviceProvider)
         {
             var pluginExecutionContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
 
@@ -21,7 +21,7 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
 
             if (validInputParameters == false) { return null; }
 
-            var contextPluginExecution = new ContextPluginExecution<Dataobjectexception.Plugins.Models.Account>("", pluginExecutionContext);
+            var contextPluginExecution = new ContextPluginExecution<dataobjectexception.dynamics365.Entities.Account>("", pluginExecutionContext);
             return contextPluginExecution;
         }
 
@@ -35,7 +35,7 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
         public static IContextDynamics365Process InitialiserServicesContainer(IServiceContainer serviceContainer, IContextDynamics365Service contextDynamics365Service)
         {
             //Repository
-            if ((IDynamics365Repository<Dataobjectexception.Plugins.Models.Account>)serviceContainer.GetService(typeof(IDynamics365Repository<Dataobjectexception.Plugins.Models.Account>)) == null)
+            if ((IDynamics365Repository<dataobjectexception.dynamics365.Entities.Account>)serviceContainer.GetService(typeof(IDynamics365Repository<dataobjectexception.dynamics365.Entities.Account>)) == null)
                 
             //Manager
             if ((IManagerProcessAccount)serviceContainer.GetService(typeof(IManagerProcessAccount)) == null)
@@ -45,7 +45,7 @@ namespace dataobjectexception.dynamics365.plugin.Plugin
             return contexteProcessus;
         }
 
-        public static void StartProcessTransactionAccount(IServiceContainer serviceContainer, IContext365<Dataobjectexception.Plugins.Models.Account> contexteGlobal)
+        public static void StartProcessTransactionAccount(IServiceContainer serviceContainer, IContext365<dataobjectexception.dynamics365.Entities.Account> contexteGlobal)
         {
             var process = (IManagerProcessAccount)serviceContainer.GetService(typeof(IManagerProcessAccount));
             var processExecuted = process.Execute(contexteGlobal);

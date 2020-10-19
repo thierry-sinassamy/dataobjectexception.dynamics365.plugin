@@ -8,9 +8,9 @@ namespace dataobjectexception.dynamics365.plugin.Process.Account
 {
     public class ManagerProcessAccount : IManagerProcessAccount
     {
-        public bool Execute(IContext365<Dataobjectexception.Plugins.Models.Account> entityDynamics365)
+        public bool Execute(IContext365<dataobjectexception.dynamics365.Entities.Account> entityDynamics365)
         {
-            var rules = new List<IPluginRuleTrigger<Dataobjectexception.Plugins.Models.Account>>();
+            var rules = new List<IPluginRuleTrigger<dataobjectexception.dynamics365.Entities.Account>>();
                 rules.AddRange(new ManagerProcessAccountAggregator().CombineEntityRules(entityDynamics365.ContextPluginExecution)
                 .Where(r => r.Message == entityDynamics365.ContextPluginExecution.Message &&
                                                     r.Stage == entityDynamics365.ContextPluginExecution.Stage &&

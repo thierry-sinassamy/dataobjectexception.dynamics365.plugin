@@ -2,7 +2,7 @@
 
 namespace dataobjectexception.dynamics365.plugin.Process.Account
 {
-    public interface IManagerProcessAccount : IDynamics365Process<Dataobjectexception.Plugins.Models.Account>
+    public interface IManagerProcessAccount : IDynamics365Process<dataobjectexception.dynamics365.Entities.Account>
     {
     }
 }
