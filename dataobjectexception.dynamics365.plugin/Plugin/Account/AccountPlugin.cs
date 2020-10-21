@@ -10,9 +10,13 @@ using static dataobjectexception.dynamics365.plugin.Registration.D365Registratio
 
 namespace dataobjectexception.dynamics365.plugin.Plugin.Account
 {
-    [D365RegistrationPlugin("Update","account", StageEnum.PreOperation, ExecutionModeEnum.Synchronous,
-   "accountid", "account on Pre Op Update", 1, IsolationModeEnum.Sandbox, Image1Type = ImageTypeEnum.PreImage, Image1Name = "PreImage"
-   , Image1Attributes = "...", Description = "Sets the account ID to ...", Id = "D0EED135-76FE-4BCA-BBA1-2435EBBBA6DA")]
+    [D365RegistrationPlugin(MessageNameEnum.Update, Entities.Account.EntityLogicalName, "accountnumber", "dataobjectexception.dynamics365.account.preupdate",
+                            ExecutionModeEnum.Synchronous, StageEnum.PreOperation, 1, IsolationModeEnum.Sandbox,
+                            Image1Type = ImageTypeEnum.PreImage, Image1Name = "PreImage", Image1EntityAliasName = "PreImage", Image1Attributes = "name, accountnumber")]
+    [D365RegistrationPlugin(MessageNameEnum.Update, Entities.Account.EntityLogicalName,"name, accountnumber", "dataobjectexception.dynamics365.account.postupdate", 
+                            ExecutionModeEnum.Synchronous, StageEnum.PostOperation, 1, IsolationModeEnum.Sandbox, 
+                            Image1Type = ImageTypeEnum.PreImage, Image1Name = "PreImage", Image1EntityAliasName = "PreImage", Image1Attributes = "...",
+                            Image2Type = ImageTypeEnum.PostImage, Image2Name = "PostImage", Image2EntityAliasName = "PostImage", Image2Attributes = "...")]
     public class AccountPlugin : IPlugin
     {       
         public void Execute(IServiceProvider serviceProvider)
@@ -22,22 +26,18 @@ namespace dataobjectexception.dynamics365.plugin.Plugin.Account
             ServiceContainer serviceContainer = null;
             try
             {
-                var localPluginContext =
-                    InitializationPlugins.InitializeContextPluginExecutionAccountPreCreate(serviceProvider);
+                var localPluginContext = InitializationPlugins.InitializeContextPluginExecutionAccountPreCreate(serviceProvider);
                 if (localPluginContext == null) return;
-                var serviceOrganizationContext =
-                    InitializationPlugins.InitialiserServicesOrganizationAccount(serviceProvider);
+                var serviceOrganizationContext = InitializationPlugins.InitialiserServicesOrganizationAccount(serviceProvider);
                 if (serviceOrganizationContext == null) return;
 
                 serviceContainer = IocContainer.Instance;
 
                 var items = new Dictionary<object, object>();
-                var serviceContextContainer =
-                    InitializationPlugins.InitialiserServicesContainer(serviceContainer, serviceOrganizationContext);
+                var serviceContextContainer = InitializationPlugins.InitialiserServicesContainer(serviceContainer, serviceOrganizationContext);
                 if (serviceContextContainer == null) return;
 
-                var localContext365 = new Context365<Entities.Account>("",
-                    serviceContextContainer, serviceOrganizationContext, localPluginContext, items);
+                var localContext365 = new Context365<Entities.Account>("", serviceContextContainer, serviceOrganizationContext, localPluginContext, items);
 
                 InitializationPlugins.StartProcessTransactionAccount(serviceContainer, localContext365);
             }

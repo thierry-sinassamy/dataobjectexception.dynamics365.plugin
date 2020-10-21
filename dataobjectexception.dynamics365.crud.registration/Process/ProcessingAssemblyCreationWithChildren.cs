@@ -25,7 +25,9 @@ namespace dataobjectexception.dynamics365.crud.registration.Process
         [MethodMessage("Exception in the method [ProcessRegistration] : related to : " + ConstantesProcess.ProcessingAssemblyCreationWithChildren)]
         public override void ProcessRegistration()
         {
-            //todo
+            //todo - validate the children to create
+
+            //Validate cas 1 : PT (pluginType) already existing
         }
     }
 }

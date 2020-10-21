@@ -1,12 +1,10 @@
 ﻿using dataobjectexception.dynamics365.crud.registration.Inversion;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace dataobjectexception.dynamics365.crud.registration.DataContext
 {

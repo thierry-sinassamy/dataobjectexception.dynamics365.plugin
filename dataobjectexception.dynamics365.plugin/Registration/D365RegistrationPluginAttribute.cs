@@ -130,47 +130,64 @@ namespace dataobjectexception.dynamics365.plugin.Registration
             Deactivate = 1,
         }
 
+        public enum PluginStepSupportedDeployment
+        {
+            ServerOnly = 0,
+            OutlookClientOnly = 1,
+            Both = 2,
+        }
+
         #endregion
 
         #region Constructor Mandatory Properties
 
-        public IsolationModeEnum IsolationMode { get; private set; }
         public string Message { get; private set; }
         public string EntityLogicalName { get; private set; }
         public string FilteringAttributes { get; private set; }
-        public string Name { get; private set; }
+        public string StepName { get; private set; }
         public int ExecutionOrder { get; private set; }
         public StageEnum? Stage { get; private set; }
+        public PluginStepSupportedDeployment SupportedDeployment { get; private set; }         
         public ExecutionModeEnum ExecutionMode { get; private set; }
+        public IsolationModeEnum IsolationMode { get; private set; }
 
         #endregion
 
         #region Named Properties
-        public string Id { get; set; }
+
+        public string IdPluginType { get; set; }
+        public string IdPluginStep { get; set; }
+        public string IdPluginStepImage { get; set; }
+
+        public ImageTypeEnum Image1Type { get; set; }
+        public string Image1Name { get; set; }
+        public string Image1EntityAliasName { get; set; }
+        public string Image1Attributes { get; set; }
+        public ImageTypeEnum Image2Type { get; set; }
+        public string Image2Name { get; set; }
+        public string Image2EntityAliasName { get; set; }
+        public string Image2Attributes { get; set; }
+
+        public string SecondaryEntityLogicalName { get; set; }     
         public string FriendlyName { get; set; }
         public string GroupName { get; set; }
-        public string Image1Name { get; set; }
-        public string Image1Attributes { get; set; }
-        public string Image2Name { get; set; }
-        public string Image2Attributes { get; set; }
         public string Description { get; set; }
         public bool? DeleteAsyncOperaton { get; set; }
         public string UnSecureConfiguration { get; set; }
         public string SecureConfiguration { get; set; }
         public bool Offline { get; set; }
         public bool Server { get; set; }
-        public ImageTypeEnum Image1Type { get; set; }
-        public ImageTypeEnum Image2Type { get; set; }
+       
         public PluginStepOperationEnum? Action { get; set; }
         #endregion
 
-        public D365RegistrationPluginAttribute(string message,string entityLogicalName,StageEnum stage,ExecutionModeEnum executionMode,string filteringAttributes,string stepName,
-                                                int executionOrder,IsolationModeEnum isolationModel)
+        public D365RegistrationPluginAttribute(string message,string entityLogicalName, string filteringAttributes, string stepName, 
+                                                ExecutionModeEnum executionMode, StageEnum stage, int executionOrder, IsolationModeEnum isolationModel)
         {
             Message = message;
             EntityLogicalName = entityLogicalName;
             FilteringAttributes = filteringAttributes;
-            Name = stepName;
+            StepName = stepName;
             ExecutionOrder = executionOrder;
             Stage = stage;
             ExecutionMode = executionMode;
@@ -179,8 +196,8 @@ namespace dataobjectexception.dynamics365.plugin.Registration
             Server = true;
         }
 
-        public D365RegistrationPluginAttribute(MessageNameEnum message,string entityLogicalName, StageEnum stage,ExecutionModeEnum executionMode,
-        string filteringAttributes,string stepName,int executionOrder,IsolationModeEnum isolationModel) : this(message.ToString(), entityLogicalName, stage, executionMode, filteringAttributes, stepName, executionOrder, isolationModel)
+        public D365RegistrationPluginAttribute(MessageNameEnum message,string entityLogicalName, string filteringAttributes, string stepName, ExecutionModeEnum executionMode, StageEnum stage,
+                    int executionOrder,IsolationModeEnum isolationModel) : this(message.ToString(), entityLogicalName, filteringAttributes, stepName, executionMode, stage, executionOrder, isolationModel)
         {}
     }
 }
