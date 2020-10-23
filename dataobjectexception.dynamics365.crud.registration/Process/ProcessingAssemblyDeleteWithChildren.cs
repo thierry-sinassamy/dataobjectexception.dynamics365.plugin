@@ -1,21 +1,23 @@
 ﻿using dataobjectexception.dynamics365.crud.registration.Factories;
 using dataobjectexception.dynamics365.crud.registration.Infrastructure;
 using dataobjectexception.dynamics365.crud.registration.Message;
-using Microsoft.Xrm.Sdk.Client;
+using dataobjectexception.dynamics365.crud.registration.NonBinaryTree;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace dataobjectexception.dynamics365.crud.registration.Process
 {
     public class ProcessingAssemblyDeleteWithChildren : Factory
     {
         //Properties
-        private OrganizationServiceProxy OSP { get; }
-        private EnumeratorProcessPluginAssembly EPPA { get; }
+        private IServiceContainer ServiceContainer { get; }
+        private Dictionary<string, Root<PluginAssembly>> EPPA { get; }
 
         //Copnstructor 
-        public ProcessingAssemblyDeleteWithChildren(OrganizationServiceProxy organizationServiceProxy, EnumeratorProcessPluginAssembly enumeratorProcessPluginAssembly)
+        public ProcessingAssemblyDeleteWithChildren(IServiceContainer serviceContainer, Dictionary<string, Root<PluginAssembly>> processingAssembly)
         {
-            OSP = organizationServiceProxy;
-            EPPA = enumeratorProcessPluginAssembly;
+            ServiceContainer = serviceContainer;
+            EPPA = processingAssembly;
         }
 
         //Override

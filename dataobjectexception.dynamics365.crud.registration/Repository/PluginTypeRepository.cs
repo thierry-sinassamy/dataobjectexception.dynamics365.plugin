@@ -7,23 +7,23 @@ using System;
 
 namespace dataobjectexception.dynamics365.crud.registration.Repository
 {
-    public class PluginAssemblyRepository : Repository<Entities.PluginAssembly>
+    public class PluginTypeRepository : Repository<Entities.PluginType>
     {
-        public PluginAssemblyRepository(IDataContext dataContext) : base(dataContext)
+        public PluginTypeRepository(IDataContext dataContext) : base(dataContext)
         {
         }
 
-        public override Entities.PluginAssembly Find(Guid id)
+        public override Entities.PluginType Find(Guid id)
         {
-            return Datacontext.DataContextEntities.Retrieve(Entities.PluginAssembly.EntityLogicalName, id, new ColumnSet() { AllColumns = true }).ToEntity<Entities.PluginAssembly>();
+            return Datacontext.DataContextEntities.Retrieve(Entities.PluginType.EntityLogicalName, id, new ColumnSet() { AllColumns = true }).ToEntity<Entities.PluginType>();
         }
 
-        public override Guid Create(Entities.PluginAssembly entity)
+        public override Guid Create(Entities.PluginType entity)
         {
             return Datacontext.DataContextEntities.Create(entity);
         }
 
-        public override OrganizationResponse CreateWithRequest(Entities.PluginAssembly entity)
+        public override OrganizationResponse CreateWithRequest(Entities.PluginType entity)
         {
             var request = new CreateRequest { Target = entity };
             return Datacontext.DataContextEntities.Execute(request);

@@ -1,24 +1,23 @@
 ﻿using dataobjectexception.dynamics365.crud.registration.Factories;
 using dataobjectexception.dynamics365.crud.registration.Infrastructure;
 using dataobjectexception.dynamics365.crud.registration.Message;
-using Microsoft.Xrm.Sdk.Client;
-using System;
+using dataobjectexception.dynamics365.crud.registration.NonBinaryTree;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.Design;
 
 namespace dataobjectexception.dynamics365.crud.registration.Process
 {
     public class ProcessingAssemblyUpdateOnly : Factory
     {
         //Properties
-        private OrganizationServiceProxy OSP { get; }
-        private EnumeratorProcessPluginAssembly EPPA { get; }
+        private IServiceContainer ServiceContainer { get; }
+        private Dictionary<string, Root<PluginAssembly>> EPPA { get; }
 
         //Copnstructor 
-        public ProcessingAssemblyUpdateOnly(OrganizationServiceProxy organizationServiceProxy, EnumeratorProcessPluginAssembly enumeratorProcessPluginAssembly)
+        public ProcessingAssemblyUpdateOnly(IServiceContainer serviceContainer, Dictionary<string, Root<PluginAssembly>> processingAssembly)
         {
-            OSP = organizationServiceProxy;
-            EPPA = enumeratorProcessPluginAssembly;
+            ServiceContainer = serviceContainer;
+            EPPA = processingAssembly;
         }
 
         //Override
