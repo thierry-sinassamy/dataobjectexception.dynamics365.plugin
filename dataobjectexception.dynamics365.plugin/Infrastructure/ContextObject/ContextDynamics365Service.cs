@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using dataobjectexception.dynamics365.plugin.Infrastructure.Inversion;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Client;
 
 // ReSharper disable once IdentifierTypo
 namespace dataobjectexception.dynamics365.plugin.Infrastructure.ContextObject
@@ -46,7 +44,7 @@ namespace dataobjectexception.dynamics365.plugin.Infrastructure.ContextObject
                 HttpMessageHandler messageHandler = new OAuthMessageHandler(url, clientId, redirectUrl, username, password,
                     new HttpClientHandler());
 
-                var httpClient = new System.Net.Http.HttpClient(messageHandler)
+                var httpClient = new HttpClient(messageHandler)
                 {
                     BaseAddress = new Uri($"{url}/api/data/{version}/"),
 

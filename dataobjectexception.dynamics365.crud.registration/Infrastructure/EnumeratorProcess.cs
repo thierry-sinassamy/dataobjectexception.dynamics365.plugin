@@ -10,6 +10,31 @@
         ProcessingAssemblyDeleteWithChildren
     }
 
+    public enum EnumTagCreation
+    {
+        Tag_PTC,
+        Tag_PTC_PTSC,
+        Tag_PTC_PTSC_PTIC
+    }
+
+    public enum EnumTagUpdate
+    {
+        Tag_PTU,
+        Tag_PTU_PTSC,
+        Tag_PTU_PTSD,
+        Tag_PTU_PTSU,
+        Tag_PTU_PTSU_PTIC,
+        Tag_PTU_PTSU_PTID,
+        Tag_PTU_PTSU_PTIU
+    }
+
+    public enum EnumTagDelete
+    {
+        Tag_PTD,
+        Tag_PTD_PTSD,
+        Tag_PTD_PTSD_PTID
+    }
+
     public enum EnumeratorProcessPluginType
     {
         ProcessingPluginUpdate,

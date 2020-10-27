@@ -57,7 +57,7 @@ namespace dataobjectexception.dynamics365.crud.registration.DataContext
             throw new NotImplementedException();
         }
 
-        public virtual OrganizationResponse Update(T entity)
+        public virtual OrganizationResponse UpdateWithRequest(T entity)
         {
             throw new NotImplementedException();
         }
@@ -72,7 +72,7 @@ namespace dataobjectexception.dynamics365.crud.registration.DataContext
             throw new NotImplementedException();
         }
 
-        public virtual OrganizationResponse Delete(T entity)
+        public virtual OrganizationResponse DeleteWithRequest(T entity)
         {
             throw new NotImplementedException();
         }

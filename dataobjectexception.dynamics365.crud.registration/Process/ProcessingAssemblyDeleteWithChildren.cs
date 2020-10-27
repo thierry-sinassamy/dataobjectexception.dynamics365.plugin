@@ -11,13 +11,13 @@ namespace dataobjectexception.dynamics365.crud.registration.Process
     {
         //Properties
         private IServiceContainer ServiceContainer { get; }
-        private Dictionary<string, Root<PluginAssembly>> EPPA { get; }
+        private Dictionary<string, Root<PluginAssembly>> ProcessingAssembly { get; }
 
         //Copnstructor 
         public ProcessingAssemblyDeleteWithChildren(IServiceContainer serviceContainer, Dictionary<string, Root<PluginAssembly>> processingAssembly)
         {
             ServiceContainer = serviceContainer;
-            EPPA = processingAssembly;
+            ProcessingAssembly = processingAssembly;
         }
 
         //Override

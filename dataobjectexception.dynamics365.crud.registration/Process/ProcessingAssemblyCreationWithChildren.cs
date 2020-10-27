@@ -11,13 +11,13 @@ namespace dataobjectexception.dynamics365.crud.registration.Process
     {
         //Properties
         private IServiceContainer ServiceContainer { get; }
-        private Dictionary<string, Root<PluginAssembly>> EPPA { get; }
+        private Dictionary<string, Root<PluginAssembly>> ProcessingAssembly { get; }
 
         //Copnstructor 
         public ProcessingAssemblyCreationWithChildren(IServiceContainer serviceContainer, Dictionary<string, Root<PluginAssembly>> processingAssembly)
         {
             ServiceContainer = serviceContainer;
-            EPPA = processingAssembly;
+            ProcessingAssembly = processingAssembly;
         }
 
         //Override
@@ -25,7 +25,7 @@ namespace dataobjectexception.dynamics365.crud.registration.Process
         public override void ProcessRegistration()
         {
             //todo - validate the children to create
-
+            //ValidateRulePTC...
             //Validate cas 1 : PT (pluginType) already existing
         }
     }

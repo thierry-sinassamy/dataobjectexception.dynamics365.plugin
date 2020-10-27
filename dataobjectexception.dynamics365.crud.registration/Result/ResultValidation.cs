@@ -16,5 +16,9 @@ namespace dataobjectexception.dynamics365.crud.registration.Result
         public EnumeratorProcessPluginImage EnumPluginImage { get; set; }
         public bool ProcessValidated { get; set; }
         public EnumeratorProcessPluginAssembly Parameter { get; set; }
+        public int LevelCount { get; set; }
+        public EnumTagCreation TagCreate { get; set; }
+        public EnumTagUpdate TagUpdate { get; set; }
+        public EnumTagDelete TagDelete { get; set; }
     }
 }

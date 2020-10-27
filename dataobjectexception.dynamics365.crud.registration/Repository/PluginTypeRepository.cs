@@ -28,5 +28,17 @@ namespace dataobjectexception.dynamics365.crud.registration.Repository
             var request = new CreateRequest { Target = entity };
             return Datacontext.DataContextEntities.Execute(request);
         }
+
+        public override OrganizationResponse UpdateWithRequest(Entities.PluginType entity)
+        {
+            var request = new UpdateRequest { Target = entity };
+            return Datacontext.DataContextEntities.Execute(request);
+        }
+
+        public override OrganizationResponse DeleteWithRequest(Entities.PluginType entity)
+        {
+            var request = new DeleteRequest { Target = new EntityReference(entity.LogicalName, entity.Id) };
+            return Datacontext.DataContextEntities.Execute(request);
+        }
     }
 }

@@ -19,10 +19,10 @@ namespace dataobjectexception.dynamics365.crud.registration.Inversion
         IEnumerable<T> FindFor(QueryBase query);
         IEnumerable<T> FindAll();
         List<T> FindAllEntititesByAttributes();
-        OrganizationResponse Update(T entity);
+        OrganizationResponse UpdateWithRequest(T entity);
         Guid Create(T entity);
         OrganizationResponse CreateWithRequest(T entity);
-        OrganizationResponse Delete(T entity);
+        OrganizationResponse DeleteWithRequest(T entity);
         void Execute(OrganizationRequestCollection collection);
         void LoadProperty(T entity, string relationshipSchemaName);
         void Associate(T source, Relationship relationShip, IEnumerable<Entity> records);

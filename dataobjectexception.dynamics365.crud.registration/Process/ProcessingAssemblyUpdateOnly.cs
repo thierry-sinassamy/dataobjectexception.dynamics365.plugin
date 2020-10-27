@@ -1,5 +1,6 @@
 ﻿using dataobjectexception.dynamics365.crud.registration.Factories;
 using dataobjectexception.dynamics365.crud.registration.Infrastructure;
+using dataobjectexception.dynamics365.crud.registration.Inversion;
 using dataobjectexception.dynamics365.crud.registration.Message;
 using dataobjectexception.dynamics365.crud.registration.NonBinaryTree;
 using System.Collections.Generic;
@@ -11,20 +12,33 @@ namespace dataobjectexception.dynamics365.crud.registration.Process
     {
         //Properties
         private IServiceContainer ServiceContainer { get; }
-        private Dictionary<string, Root<PluginAssembly>> EPPA { get; }
+        private Dictionary<string, Root<PluginAssembly>> ProcessingAssembly { get; }
 
         //Copnstructor 
         public ProcessingAssemblyUpdateOnly(IServiceContainer serviceContainer, Dictionary<string, Root<PluginAssembly>> processingAssembly)
         {
             ServiceContainer = serviceContainer;
-            EPPA = processingAssembly;
+            ProcessingAssembly = processingAssembly;
         }
 
         //Override
         [MethodMessage("Exception in the method [ProcessRegistration] : related to : " + ConstantesProcess.ProcessingAssemblyUpdateOnly)]
         public override void ProcessRegistration()
         {
-            //todo
+            var repoPluginAssembly = (IRepository<Entities.PluginAssembly>)ServiceContainer.GetService(typeof(IRepository<Entities.PluginAssembly>));
+
+            //Map the Pluginassembly Object with the fields of the CRM entity
+            Entities.PluginAssembly pa = new Entities.PluginAssembly()
+            {
+                LogicalName = Entities.PluginAssembly.EntityLogicalName,
+                //Id = Id,
+                Attributes =
+                {
+                   //{"pluginassemblyid", Id },
+                   //{"name", name } etc.
+                }
+            };
+            repoPluginAssembly.UpdateWithRequest(pa);
         }
     }
 }
