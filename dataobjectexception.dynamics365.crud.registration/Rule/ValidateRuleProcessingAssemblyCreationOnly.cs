@@ -21,21 +21,19 @@ namespace dataobjectexception.dynamics365.crud.registration.Rule
             if (typePluginAssembly.Children.GetType() == typeof(PluginAssemblyCreate) || typePluginAssembly.Children.NextChild != null) //create with children
                 return null;
 
-            var incrementedLevel = 0;
-            if (typePluginAssembly.Children.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-
-            var result = new ResultValidation
+            if (typePluginAssembly.Children == null)
             {
-                ObjectValidated = true,
-                DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
-                Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyCreationOnly,
-                KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyCreationOnly },
-                LevelCount = incrementedLevel
-            };
-            return result;
+                var result = new ResultValidation
+                {
+                    ObjectValidated = true,
+                    DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
+                    Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyCreationOnly,
+                    KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyCreationOnly },
+                    TagCreate= EnumTagCreation.Tag_Assembly_C
+                };
+                return result;
+            }
+            return null;               
         }
     }
 }

@@ -21,21 +21,19 @@ namespace dataobjectexception.dynamics365.crud.registration.Rule
             if (typePluginAssembly.Children.GetType() == typeof(PluginAssemblyCreate) || typePluginAssembly.Children.NextChild == null) //create without children
                 return null;
 
-            var incrementedLevel = 0;
-                if (typePluginAssembly.Children.LevelCount > 0) { incrementedLevel++; }
-                if(typePluginAssembly.Children?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-                if(typePluginAssembly.Children?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-                if (typePluginAssembly.Children?.NextChild?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-           
-            var result = new ResultValidation
+            if (typePluginAssembly.Children?.LevelCount > 0)
             {
-                ObjectValidated = true,
-                DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
-                Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyCreationWithChildren,
-                KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyCreationWithChildren },
-                LevelCount = incrementedLevel
-            };
-            return result;
+                var result = new ResultValidation
+                {
+                    ObjectValidated = true,
+                    DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
+                    Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyCreationWithChildren,
+                    KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyCreationWithChildren },
+                    TagCreate = EnumTagCreation.Tag_Assembly_C_With_Children
+                };
+                return result;
+            }
+            return null;
         }
     }
 }

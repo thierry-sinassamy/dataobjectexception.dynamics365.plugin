@@ -12,6 +12,8 @@
 
     public enum EnumTagCreation
     {
+        Tag_Assembly_C,
+        Tag_Assembly_C_With_Children,
         Tag_PTC,
         Tag_PTC_PTSC,
         Tag_PTC_PTSC_PTIC
@@ -19,6 +21,8 @@
 
     public enum EnumTagUpdate
     {
+        Tag_Assembly_U,
+        Tag_Assembly_U_With_Children,
         Tag_PTU,
         Tag_PTU_PTSC,
         Tag_PTU_PTSD,
@@ -30,6 +34,8 @@
 
     public enum EnumTagDelete
     {
+        Tag_Assembly_D,
+        Tag_Assembly_D_With_Children,
         Tag_PTD,
         Tag_PTD_PTSD,
         Tag_PTD_PTSD_PTID

@@ -19,21 +19,19 @@ namespace dataobjectexception.dynamics365.crud.registration.Rule
             if (typePluginAssembly.Children.GetType() == typeof(PluginAssemblyDelete) || typePluginAssembly.Children.NextChild == null) //delete without children
                 return null;
 
-            var incrementedLevel = 0;
-            if (typePluginAssembly.Children.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-            if (typePluginAssembly.Children?.NextChild?.NextChild?.NextChild?.LevelCount > 0) { incrementedLevel++; }
-
-            var result = new ResultValidation
+            if (typePluginAssembly.Children?.LevelCount > 0)
             {
-                ObjectValidated = true,
-                DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
-                Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyDeleteWithChildren,
-                KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyDeleteWithChildren },
-                LevelCount = incrementedLevel
-            };
-            return result;
+                var result = new ResultValidation
+                {
+                    ObjectValidated = true,
+                    DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
+                    Parameter = EnumeratorProcessPluginAssembly.ProcessingAssemblyDeleteWithChildren,
+                    KeyValueMessageValidation = new Dictionary<int, string>() { [processingAssembly.Count] = ConstantesRules.RuleProcessingAssemblyDeleteWithChildren },
+                    TagDelete = EnumTagDelete.Tag_Assembly_D_With_Children
+                };
+                return result;
+            }
+            return null;               
         }
     }
 }
