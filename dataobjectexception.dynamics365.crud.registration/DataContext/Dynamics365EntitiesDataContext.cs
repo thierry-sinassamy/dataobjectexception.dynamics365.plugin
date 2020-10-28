@@ -4,7 +4,7 @@ using Microsoft.Xrm.Sdk;
 
 namespace dataobjectexception.dynamics365.crud.registration.DataContext
 {
-    class Dynamics365EntitiesDataContext : IDataContext
+    public class Dynamics365EntitiesDataContext : IDataContext
     {
         public IOrganizationService DataContextEntities { get; set; }
         public Dynamics365EntitiesDataContext(string connectioString)
