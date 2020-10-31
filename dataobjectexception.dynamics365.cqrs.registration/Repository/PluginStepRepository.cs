@@ -1,10 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using dataobjectexception.dynamics365.cqrs.registration.DataContext;
+using dataobjectexception.dynamics365.cqrs.registration.Inversion;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Query;
+using System;
 
 namespace dataobjectexception.dynamics365.cqrs.registration.Repository
 {
-    class PluginStepRepository
+    public class PluginStepRepository : Repository<Entities.SdkMessageProcessingStep>
     {
+        public PluginStepRepository(IDataContext dataContext) : base(dataContext)
+        {
+        }
+
+        public override Entities.SdkMessageProcessingStep Find(Guid id)
+        {
+            return Datacontext.DataContextEntities.Retrieve(Entities.SdkMessageProcessingStep.EntityLogicalName, id, new ColumnSet() { AllColumns = true }).ToEntity<Entities.SdkMessageProcessingStep>();
+        }
+
+        public override Guid Create(Entities.SdkMessageProcessingStep entity)
+        {
+            return Datacontext.DataContextEntities.Create(entity);
+        }
+
+        public override OrganizationResponse CreateWithRequest(Entities.SdkMessageProcessingStep entity)
+        {
+            var request = new CreateRequest { Target = entity };
+            return Datacontext.DataContextEntities.Execute(request);
+        }
+
+        public override OrganizationResponse UpdateWithRequest(Entities.SdkMessageProcessingStep entity)
+        {
+            var request = new UpdateRequest { Target = entity };
+            return Datacontext.DataContextEntities.Execute(request);
+        }
+
+        public override OrganizationResponse DeleteWithRequest(Entities.SdkMessageProcessingStep entity)
+        {
+            var request = new DeleteRequest { Target = new EntityReference(entity.LogicalName, entity.Id) };
+            return Datacontext.DataContextEntities.Execute(request);
+        }
     }
 }

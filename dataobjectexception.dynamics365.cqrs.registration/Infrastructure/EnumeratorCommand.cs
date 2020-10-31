@@ -2,8 +2,15 @@
 {
     public enum EnumeratorCommand
     {
-        UpdatePluginAssemblyCommand,
-        CreatePluginAssemblyCommand,
-        DeletePluginAssemblyCommand
+        AdjustPluginAssemblyCommand,
+        RegisterPluginAssemblyCommand,
+        UnregisterPluginAssemblyCommand
+    }
+
+    public enum EnumTag
+    {
+        Tag_Adjust,
+        Tag_Register,
+        Tag_UnRegister        
     }
 }

@@ -1,26 +1,25 @@
 ﻿using dataobjectexception.dynamics365.cqrs.registration.Inversion;
-using dataobjectexception.dynamics365.cqrs.registration.Result;
 using System;
+using System.Collections.Generic;
 
 namespace dataobjectexception.dynamics365.cqrs.registration.PluginAssembly
 {
-    public sealed class RegisterPluginAssemblyCommandHandler : ICommandHandler<RegisterPluginAssemblyCommand>
+    public sealed class GetPluginAssemblyQueryHandler : IQueryHandler<GetPluginAssemblyQuery, List<Entities.PluginAssembly>>
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public RegisterPluginAssemblyCommandHandler(IServiceProvider serviceProvider)
+        public GetPluginAssemblyQueryHandler(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
 
         /// <summary>
-        /// Purpose : handle the creation of the Plugin Assembly in the D365 Organization
+        /// Purpose : handle the query of the Plugin Assembly already deployed in the D365 Organization
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public ResultValidation Handle(RegisterPluginAssemblyCommand command)
+        public List<Entities.PluginAssembly> Handle(GetPluginAssemblyQuery query)
         {
-            //PluginAssembly.Name = command.Name, etc...
             throw new NotImplementedException();
         }
     }

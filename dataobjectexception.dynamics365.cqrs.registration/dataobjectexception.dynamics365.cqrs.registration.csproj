@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Factories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\dataobjectexception.dynamics365.plugin\dataobjectexception.dynamics365.plugin.csproj" />
   </ItemGroup>
 

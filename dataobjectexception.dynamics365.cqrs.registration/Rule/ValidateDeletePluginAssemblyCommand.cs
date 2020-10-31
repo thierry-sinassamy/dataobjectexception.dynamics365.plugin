@@ -5,19 +5,19 @@ using System.Diagnostics;
 
 namespace dataobjectexception.dynamics365.cqrs.registration.Rule
 {
-    internal class ValidateUpdatePluginAssemblyCommand : IRule
+    internal class ValidateDeletePluginAssemblyCommand : IRule
     {
         public ResultValidation RuleProcessingCommand(EnumeratorCommand enumeratorCommand)
         {
-            if (EnumeratorCommand.AdjustPluginAssemblyCommand != enumeratorCommand)
+            if (EnumeratorCommand.UnregisterPluginAssemblyCommand != enumeratorCommand)
                 return null;
 
             var result = new ResultValidation
             {
                 ObjectValidated = true,
                 DisplayName = new StackTrace().GetFrame(0).GetMethod().Name,
-                Command = EnumeratorCommand.AdjustPluginAssemblyCommand,               
-                Tag = EnumTag.Tag_Adjust,
+                Command = EnumeratorCommand.UnregisterPluginAssemblyCommand,
+                Tag = EnumTag.Tag_UnRegister,
                 ProcessValidated = true
             };
             return result;
