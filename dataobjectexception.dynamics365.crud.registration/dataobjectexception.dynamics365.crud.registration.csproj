@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Proxy\" />
-    <Folder Include="Target\" />
   </ItemGroup>
 
   <ItemGroup>
