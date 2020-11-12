@@ -1,5 +1,4 @@
-﻿using dataobjectexception.dynamics365.cqrs.registration.Factories;
-using dataobjectexception.dynamics365.cqrs.registration.Inversion;
+﻿using dataobjectexception.dynamics365.cqrs.registration.Inversion;
 using dataobjectexception.dynamics365.cqrs.registration.Result;
 using System;
 

@@ -5,7 +5,6 @@ using dataobjectexception.dynamics365.plugin.Infrastructure.ContextObject;
 using dataobjectexception.dynamics365.plugin.Infrastructure.Injection;
 using dataobjectexception.dynamics365.plugin.Registration;
 using Microsoft.Xrm.Sdk;
-using dataobjectexception.dynamics365.Entities;
 using static dataobjectexception.dynamics365.plugin.Registration.D365RegistrationPluginAttribute;
 
 namespace dataobjectexception.dynamics365.plugin.Plugin.Account
