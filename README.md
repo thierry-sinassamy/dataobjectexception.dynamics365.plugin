@@ -8,7 +8,8 @@ The CRM Plugin pipeline should implement a strategy by separting the executing o
 ## Solution
 
 Regarding the problem, implementing design patterns regarding the CRM pipeline would be helpful.
-Using Rule Pattern, Factory Pattern, Singleton Pattern, Dependency Injection help to separate the execution rules in CRM pipeline related to an entity from the rules validation.
+Using Rule Pattern, Factory Pattern, Singleton Pattern, Dependency Injection help to separate the execution rules in CRM pipeline related to an entity from the rules of validation related to the same entity as well.
+Moreover, all rules of validation could be aggregated regarding one process related to one entity, trigerring the business rule if needed.  
 
 ![Dynamics365CodeArchitectureAndConcept](https://github.com/thierry-sinassamy/objectexception.dynamics365.plugin/blob/master/Dynamics365CodeArchitectureAndConcept.png)
 
