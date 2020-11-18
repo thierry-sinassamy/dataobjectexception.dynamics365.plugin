@@ -1,9 +1,9 @@
 # dataobjectexception.dynamics365.plugin : aggregation and pipelines in D365
 
-##Context and problem
+## Context and problem
 
 
-##Solution
+## Solution
 
 Design pattern regarding the pipelines of dynamics 365 Plugins
 - Using Dependency Injection with IServiceContainer
@@ -14,7 +14,7 @@ Design pattern regarding the pipelines of dynamics 365 Plugins
 
 ![Dynamics365CodeArchitectureAndConcept](https://github.com/thierry-sinassamy/objectexception.dynamics365.plugin/blob/master/Dynamics365CodeArchitectureAndConcept.png)
 
-##Issues and considerations
+## Issues and considerations
 
 
-##When to use this pattern
+## When to use this pattern
