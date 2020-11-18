@@ -2,7 +2,7 @@
 
 ## Context and problem
 
-In a CRM pipeline, all business rules are encapsulated in the same process, executing all business rules whareas we do not need.<br/>
+In a CRM pipeline, all business rules are encapsulated in the same process, executing all business rules whareas we do not need to do this way.<br/>
 The CRM Plugin pipeline should implement a strategy by separting the executing of the business rules from their execution rule. So, a rule validation would clarify when the business rule has to be executed.
 
 ## Solution
