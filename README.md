@@ -17,12 +17,15 @@ Moreover, all rules of validation could be aggregated regarding one process rela
 
 Some challenges of implementing this separation include : 
 
--- Lifecycle of the objects : avoid stackoverflow, memory handling,...
--- Complexity : initialization of plugins will increase if we increase the number of entities
--- Performance : do not increase the initial performance of the plugins, not made for bulk operations,...
+-- Lifecycle of the objects : avoid stackoverflow, memory handling,...<br/>
+-- Complexity : initialization of plugins will increase if we increase the number of entities,...<br/>
+-- Performance : do not increase the initial performance of the plugins, not made for bulk operations,...<br/>
 
 ## When to use this pattern
 
 Use this pattern to:
--- isolate the execution (process) from the execution rules or validation rules
--- to tag the execution rules with the messagename (i.e. Creation,...), with the pipeline stage (i.e PreOperation,...)
+-- isolate the execution (process) from the execution rules or validation rules <br/>
+-- to tag the execution rules with the messagename (i.e. Creation,...), with the pipeline stage (i.e PreOperation,...)<br/>
+
+This pattern may not be suitable:
+-- for small projects, for lesser degree of complexity<br/>
