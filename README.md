@@ -2,15 +2,13 @@
 
 ## Context and problem
 
+In a CRM pipeline, all business rules are encapsulated in the same process, executing all business rules whareas we do not need.
+The CRM Plugin pipeline should implement a strategy by separting the executing of the business rules from their execution rule. So, a rule validation would clarify when the business rule has to be executed.
 
 ## Solution
 
-Design pattern regarding the pipelines of dynamics 365 Plugins
-- Using Dependency Injection with IServiceContainer
-- Using Rule Pattern to handle the instanciation and the execution of the D365 pipeline
-- Using Rule Pattern and Factory Pattern to handle the instanciation and the execution of the D365 processes or actions (related to the rules)
-- Using Repository Pattern to inject the Dynamics 365 context (CRM services, CRM plugin execution context...)
-- Using Singleton Pattern to handle one instance of the container
+Regarding the problem, implementing design patterns regarding the CRM pipeline would be helpful.
+Using Rule Pattern, Factory Pattern, Singleton Pattern, Dependency Injection help to separate the execution rules in CRM pipeline related to an entity from the rules validation.
 
 ![Dynamics365CodeArchitectureAndConcept](https://github.com/thierry-sinassamy/objectexception.dynamics365.plugin/blob/master/Dynamics365CodeArchitectureAndConcept.png)
 
